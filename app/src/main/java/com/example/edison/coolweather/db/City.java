@@ -2,10 +2,6 @@ package com.example.edison.coolweather.db;
 
 import org.litepal.crud.DataSupport;
 
-/**
- * Created by edison on 2018/5/3.
- */
-
 public class City extends DataSupport {
 
     private int id;
@@ -24,18 +20,16 @@ public class City extends DataSupport {
         this.id = id;
     }
 
-    public String getCityName(){
+    public String getCityName() {
         return cityName;
     }
 
     public void setCityName(String cityName){
         this.cityName = cityName;
-
     }
 
     public int getCityCode(){
         return cityCode;
-
     }
 
     public void setCityCode(int cityCode){
@@ -44,5 +38,9 @@ public class City extends DataSupport {
 
     public int getProvinceId(){
         return provinceId;
+    }
+
+    public void setProvinceId(int provinceId){
+        this.provinceId = provinceId;
     }
 }

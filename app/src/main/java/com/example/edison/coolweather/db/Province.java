@@ -1,16 +1,14 @@
 package com.example.edison.coolweather.db;
 
-import org.litepal.crud.DataSupport;
+import android.provider.ContactsContract;
 
-/**
- * Created by edison on 2018/5/3.
- */
+import org.litepal.crud.DataSupport;
 
 public class Province extends DataSupport {
 
     private int id;
 
-    private String provinceName;
+    private  String provinceName;
 
     private int provinceCode;
 
@@ -20,10 +18,9 @@ public class Province extends DataSupport {
 
     public void setId(int id){
         this.id = id;
-
     }
 
-    public String getProvinceName(){
+    public String getProvinceName() {
         return provinceName;
     }
 
@@ -33,7 +30,6 @@ public class Province extends DataSupport {
 
     public int getProvinceCode(){
         return provinceCode;
-
     }
 
     public void setProvinceCode(int provinceCode){

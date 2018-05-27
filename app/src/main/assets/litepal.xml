@@ -3,7 +3,7 @@
     android:layout_width="match_parent">
     <dbname android:vaule="cool_weather"/>
 
-    <version android:value="1"/>
+    <version android:value="0"/>
 
     <list>
         <mapping class="com.coolweather.android.db.Province"/>
