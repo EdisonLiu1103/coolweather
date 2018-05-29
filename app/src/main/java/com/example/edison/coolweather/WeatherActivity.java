@@ -1,5 +1,6 @@
 package com.example.edison.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.DrawableWrapper;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.edison.coolweather.gson.Forecast;
 import com.example.edison.coolweather.gson.Weather;
+import com.example.edison.coolweather.service.AutoUpdateService;
 import com.example.edison.coolweather.util.HttpUtil;
 import com.example.edison.coolweather.util.Utility;
 
@@ -232,6 +234,10 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
+
     }
 
 
@@ -267,4 +273,7 @@ public class WeatherActivity extends AppCompatActivity {
 
         });
     }
+
+
+
 }
