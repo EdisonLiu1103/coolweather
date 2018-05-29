@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.edison.coolweather.db.City;
 import com.example.edison.coolweather.db.County;
 import com.example.edison.coolweather.db.Province;
+import com.example.edison.coolweather.gson.Weather;
 import com.example.edison.coolweather.util.HttpUtil;
 import com.example.edison.coolweather.util.Utility;
 
@@ -114,10 +115,23 @@ public class ChooseAreaFragment extends android.support.v4.app.Fragment {
                     queryCounties();
                 }else if(currentLevel == LEVEL_COUNTY){
                     String weatherId = countyList.get(i).getWeatherId();
-                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
-                    intent.putExtra("weather_id", weatherId);
-                    startActivity(intent);
-                    getActivity().finish();
+                    if(getActivity() instanceof MainActivity) {
+                        Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                        intent.putExtra("weather_id", weatherId);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+
+                    /**
+                     * Java中，instanceof关键字可以用来判断一个对象是否属于某个类的实例
+                     */
+
+                    else if(getActivity() instanceof WeatherActivity){
+                            WeatherActivity activity = (WeatherActivity)getActivity();
+                            activity.drawerLayout.closeDrawers();
+                            activity.swipeRefresh.setRefreshing(true);
+                            activity.requestWeather(weatherId);
+                    }
                 }
             }
         });
